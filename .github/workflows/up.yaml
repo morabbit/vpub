@@ -11,11 +11,12 @@ jobs:
         run: |
           sh trial.sh
       - name: commit
-        git config --global heyu330182@hotmail.com
-        git config --global user.name heyu330182
-        git add .
-        git commit -m "update:`date`"
-        git pull --rebase
+        run: |
+          git config --global heyu330182@hotmail.com
+          git config --global user.name heyu330182
+          git add .
+          git commit -m "update:`date`"
+          git pull --rebase
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
