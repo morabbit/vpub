@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest 
     steps:
       - name: update vpub
-      run: |
-        sh trial.sh
+        run: |
+          sh trial.sh
       - name: commit
         git config --global heyu330182@hotmail.com
         git config --global user.name heyu330182
@@ -17,9 +17,9 @@ jobs:
         git commit -m "update:`date`"
         git pull --rebase
       - name: Push changes
-          uses: ad-m/github-push-action@master
-          with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+        uses: ad-m/github-push-action@master
+        with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
       
       
       
