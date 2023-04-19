@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: update vpub
         run: |
-          
+          cd vpub
           sh trial.sh
       - name: commit
         run: |
