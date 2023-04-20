@@ -9,6 +9,8 @@ jobs:
         shell: bash
         run: |
           pwd
+          cd /
+          pwd
       - name: commit
         run: |
           git config --global heyu330182@hotmail.com
