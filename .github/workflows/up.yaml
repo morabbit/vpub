@@ -8,7 +8,7 @@ jobs:
       - name: update vpub
         working-directory: ../..
         run: |
-          sh $HOME/vpub/trial.sh
+          sh trial.sh
       - name: commit
         run: |
           git config --global heyu330182@hotmail.com
