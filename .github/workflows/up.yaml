@@ -8,7 +8,7 @@ jobs:
       - name: update vpub
         shell: bash
         run: |
-          find trial.sh
+          pwd
       - name: commit
         run: |
           git config --global heyu330182@hotmail.com
