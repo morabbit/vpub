@@ -1,7 +1,6 @@
 name: updateVpub
 on:  
-  schedule:
-    - cron: '30 * * * *'
+  push
 jobs:
   build:
     runs-on: ubuntu-latest 
