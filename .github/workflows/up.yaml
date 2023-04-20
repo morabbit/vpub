@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest 
     steps:
       - name: update vpub
+        working-directory: ../..
         run: |
           sh $HOME/vpub/trial.sh
       - name: commit
