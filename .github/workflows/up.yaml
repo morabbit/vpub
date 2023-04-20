@@ -7,9 +7,7 @@ jobs:
     runs-on: ubuntu-latest 
     steps:
       - name: update vpub
-        run: |
-          cd vpub
-          sh trial.sh
+        run: ./trial.sh
       - name: commit
         run: |
           git config --global heyu330182@hotmail.com
