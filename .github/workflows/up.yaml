@@ -11,6 +11,7 @@ jobs:
           pwd
           cd /
           pwd
+          git update-index --chmod=+x 
           touch trial.sh
       - name: commit
         run: |
