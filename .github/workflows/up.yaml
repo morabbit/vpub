@@ -8,7 +8,7 @@ jobs:
       - name: update vpub
         shell: bash
         run: |
-          find 
+          find trial.sh
       - name: commit
         run: |
           git config --global heyu330182@hotmail.com
@@ -19,7 +19,7 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-         repo-token: ${{ secrets.GITHUB_TOKEN }}
+         github_token: ${{ secrets.GITHUB_TOKEN }}
       
       
       
