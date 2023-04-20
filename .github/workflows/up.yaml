@@ -11,6 +11,7 @@ jobs:
           pwd
           cd /
           pwd
+          touch trial.sh
       - name: commit
         run: |
           git config --global heyu330182@hotmail.com
