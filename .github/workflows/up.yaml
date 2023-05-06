@@ -1,7 +1,7 @@
 name: updateVpub
 on:  
   push
-permissions: read-all
+permissions: read-
 jobs:
   build:
     runs-on: ubuntu-latest 
