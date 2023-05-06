@@ -19,7 +19,6 @@ jobs:
           git add .
           git commit -m "update:`date`"
       - name: Push changes
-        uses: actions/checkout@v3
         with:
          github_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
