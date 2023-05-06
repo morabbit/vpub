@@ -6,13 +6,12 @@ jobs:
   build:
     runs-on: ubuntu-latest 
     steps:
+      - name: checkout codes
+        uses: actions/checkout@v1
       - name: update vpub
         shell: bash
         run: |
-          pwd
-          cd /
-          pwd
-          touch trial.sh
+          bash ./trial.sh
       - name: commit
         run: |
           git config --global heyu330182@hotmail.com
