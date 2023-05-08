@@ -1,7 +1,7 @@
 name: updateVpub
 on:  
   push
-permissions: read-all
+permissions: write-all
 jobs:
   build:
     runs-on: ubuntu-latest 
@@ -16,13 +16,14 @@ jobs:
         run: |
           git config --global user.email heyu330182@hotmail.com
           git config --global user.name heyu330182
+          git pull
           git add .
           git commit -m "update:`date`"
       - name: Push changes
-        uses: actions/checkout@v3
+        uses: ad-m/github-push-action@master
         with:
          github_token: ${{ secrets.GITHUB_TOKEN }}
-         branch: ${{ github.ref }}
+         branch: master
         
       
       
