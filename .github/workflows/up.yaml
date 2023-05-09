@@ -1,25 +1,30 @@
 name: updateVpub
 on:  
-  schedule:
-    - cron: '30 * * * *'
+  push
+permissions: write-all
 jobs:
   build:
     runs-on: ubuntu-latest 
     steps:
+      - name: checkout codes
+        uses: actions/checkout@v1
       - name: update vpub
+        shell: bash
         run: |
-          sh trial.sh
+          bash ./trial.sh
       - name: commit
         run: |
-          git config --global heyu330182@hotmail.com
+          git config --global user.email heyu330182@hotmail.com
           git config --global user.name heyu330182
+          git checkout master
+          git pull
           git add .
           git commit -m "update:`date`"
-          git pull --rebase
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
+         github_token: ${{ secrets.GITHUB_TOKEN }}
+         branch: master
       
       
       
