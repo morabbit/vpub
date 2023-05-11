@@ -1,7 +1,6 @@
 name: updateVpub
 on:  
-   schedule:
-    - cron:  '30 7,9,10,11,13,17,20 * * *'
+   push
 permissions: write-all
 jobs:
   build:
