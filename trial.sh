@@ -11,3 +11,13 @@ echo ${FILEURL}
 
 RESULT=$(curl -XGET ${FILEURL})
 echo $RESULT>>privateused
+
+fileyaml=".yaml"
+pathyaml="https://clashnode.com/wp-content/uploads/"
+FILEURLYAML=${pathyaml}${time}${fileyaml}
+echo ${FILEURLYAML}
+
+>privateused.yaml
+RESULTYAML=$(curl -XGET ${FILEURLYAML})
+echo $RESULTYAML>>privateused.yaml
+
