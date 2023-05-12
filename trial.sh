@@ -21,3 +21,5 @@ echo ${FILEURLYAML}
 RESULTYAML=$(curl -XGET ${FILEURLYAML})
 echo $RESULTYAML>>privateused.yaml
 
+>README.md
+echo "update on" ${time} >  README.md
