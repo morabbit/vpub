@@ -17,9 +17,14 @@ pathyaml="https://clashnode.com/wp-content/uploads/"
 FILEURLYAML=${pathyaml}${time}${fileyaml}
 echo ${FILEURLYAML}
 
->privateused.yaml
-RESULTYAML=$(curl -XGET ${FILEURLYAML})
-echo $RESULTYAML>>privateused.yaml
+#>privateused.yaml
+#RESULTYAML=$(curl -XGET ${FILEURLYAML})
+#echo $RESULTYAML>>privateused.yaml
+
+curl -XGET ${FILEURLYAML} -O
+dateyaml=$(date "+%Y%m%d")
+getyaml=${dateyaml}${fileyaml}
+mv ${getyaml} privateused.yaml
 
 >README.md
 echo "update on" ${time} >  README.md
