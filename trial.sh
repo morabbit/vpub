@@ -6,7 +6,7 @@ file=".txt"
 path_share="https://raw.staticdn.net/mianfeifq/share/main/data"
 path_pawdroid="https://raw.staticdn.net/Pawdroid/Free-servers/main/sub"
 pf="privateused"
-REALLYFILE=${path_share}${time}${num}${file}
+newone=
 
 function clearold(){
     >$pf
@@ -44,8 +44,8 @@ do
     if [ $RESULT -eq 200 ]; then
         clearold
         echo $(curl -L -XGET ${FILEURL})>>$pf
-        REALLYFILE=${FILEURL}
         echo "share内容已成功写入"
+        newone=${FILEURL}
         return 0
     else
         echo "share获取内容失败: $RESULT"
@@ -53,15 +53,45 @@ do
 
 done
 echo "END SHARE"
-return 0
+return -1 
 }
 
+function checknewone(){
+if [ ! $newone ];then
+    echo "should use lastone"
+else
+    echo "has newone use newone"
+    echo ${newone}>lastone
+    return 0
+fi
+
+cat lastone | while read line
+do
+    echo $line
+    if [ ! $line ];then
+    FILEURL=${line}
+    RESULT=$(curl -L -XGET -o /dev/null -w " %{http_code}" ${FILEURL})
+    echo $RESULT
+
+    # 检查curl命令是否成功
+    if [ $RESULT -eq 200 ]; then
+        clearold
+        echo $(curl -L -XGET ${FILEURL})>>$pf
+        echo "share内容已成功写入"
+        return 0
+    else
+        echo "share获取内容失败: $RESULT"
+    fi
+    fi
+done
+}
 
 share
+checknewone
 #pawdroid
 
 >README.md
-echo "update on" ${REALLYFILE} $(date "+%Y-%m-%d %H:%M:%S") >  README.md
+echo "update on" $(date "+%Y-%m-%d %H:%M:%S") >  README.md
 
 
 
