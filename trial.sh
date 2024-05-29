@@ -6,6 +6,7 @@ file=".txt"
 path_share="https://raw.staticdn.net/mianfeifq/share/main/data"
 path_pawdroid="https://raw.staticdn.net/Pawdroid/Free-servers/main/sub"
 pf="privateused"
+REALLYFILE=${path_share}${time}${num}${file}
 
 function clearold(){
     >$pf
@@ -43,6 +44,7 @@ do
     if [ $RESULT -eq 200 ]; then
         clearold
         echo $(curl -L -XGET ${FILEURL})>>$pf
+        REALLYFILE=${FILEURL}
         echo "share内容已成功写入"
         return 0
     else
@@ -59,7 +61,7 @@ share
 #pawdroid
 
 >README.md
-echo "update on" $(date "+%Y-%m-%d %H:%M:%S") >  README.md
+echo "update on" ${REALLYFILE} $(date "+%Y-%m-%d %H:%M:%S") >  README.md
 
 
 
