@@ -32,7 +32,7 @@ echo "END PAWDROID"
 
 function share(){
 echo "START SHARE"
-for num in {1..31}
+for num in {0..31}
 do
     FILEURL=${path_share}${time}${num}${file}
     echo ${FILEURL}
